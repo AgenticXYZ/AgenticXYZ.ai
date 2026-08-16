@@ -90,7 +90,11 @@ export default function AboutPage() {
                 >
                   X <span aria-hidden="true">↗</span>
                 </a>
-                .
+                . WeChat Official Account (Chinese only):{" "}
+                <span className="about-wechat-account">
+                  自主新生宇宙智能AgenticXYZ
+                </span>{" "}
+                (ID: AgenticXYZAI).
               </p>
             </div>
           </article>

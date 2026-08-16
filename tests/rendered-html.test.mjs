@@ -263,11 +263,16 @@ test("renders Writing, both new essays, Moments, and About Me", async () => {
   assert.match(aboutHtml, /self-improvement agentic AI systems/);
   assert.match(aboutHtml, /href="https:\/\/x\.com\/xinyusheazhang" target="_blank" rel="noreferrer"/);
   assert.match(aboutHtml, /welcome to contact me on/);
+  assert.match(aboutHtml, /WeChat Official Account \(Chinese only\):/);
+  assert.match(aboutHtml, /自主新生宇宙智能AgenticXYZ/);
+  assert.match(aboutHtml, /ID: AgenticXYZAI/);
   assert.match(aboutHtml, /Agents by Agents · Human beyond the Execution Loop/);
 
-  for (const html of [momentsHtml, aboutHtml]) {
-    assert.doesNotMatch(html, /[\u3400-\u9fff]/);
-  }
+  assert.doesNotMatch(momentsHtml, /[\u3400-\u9fff]/);
+  assert.doesNotMatch(
+    aboutHtml.replaceAll("自主新生宇宙智能", ""),
+    /[\u3400-\u9fff]/,
+  );
 
   for (const html of [writingHtml, manifestoHtml, manifestoZhHtml, prototypeHtml, prototypeZhHtml, momentsHtml, aboutHtml]) {
     assert.match(html, /class="footer-signature">/);
