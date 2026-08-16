@@ -75,7 +75,7 @@ export const industrialRevolutionArticleZh: ArticleTranslation = {
             "Y — Yours",
             "属于每个人的 Agent",
             "Agents for People",
-            "Agents in Every Loop",
+            "Human on the Loop",
             "Agent 如何形成个性化记忆，持续服务每一个人",
           ],
           [

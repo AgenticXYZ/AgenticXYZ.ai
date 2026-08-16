@@ -79,7 +79,7 @@ export const industrialRevolutionArticle: Article = {
             "Y — Yours",
             "An agent for every person",
             "Agents for People",
-            "Agents in Every Loop",
+            "Human on the Loop",
             "How agents build personalized memory and continuously serve every person",
           ],
           [

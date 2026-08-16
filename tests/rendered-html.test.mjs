@@ -117,7 +117,8 @@ test("renders Writing, both new essays, Moments, and About Me", async () => {
   assert.match(manifestoHtml, /Research Coordinates: From X Toward Y and Z/);
   assert.match(manifestoHtml, /The AgenticXYZ coordinate system/);
   assert.match(manifestoHtml, /Agents with People/);
-  assert.match(manifestoHtml, /Agents in Every Loop/);
+  assert.match(manifestoHtml, /Human on the Loop/);
+  assert.doesNotMatch(manifestoHtml, /Agents in Every Loop/);
   assert.match(manifestoHtml, /Human beyond the Execution Loop/);
   assert.match(manifestoHtml, /Agentic AI enables controllable intelligence to help people/);
   assert.match(manifestoHtml, /Working on self-improvement agentic AI system/);
@@ -145,6 +146,8 @@ test("renders Writing, both new essays, Moments, and About Me", async () => {
   assert.match(manifestoZhHtml, /AgenticXYZ 是一个研究人与智能体如何共同进入下一轮智能工业革命的坐标系/);
   assert.match(manifestoZhHtml, /AgenticXYZ 三轴坐标系/);
   assert.match(manifestoZhHtml, /Agents with People/);
+  assert.match(manifestoZhHtml, /Human on the Loop/);
+  assert.doesNotMatch(manifestoZhHtml, /Agents in Every Loop/);
   assert.match(manifestoZhHtml, /研究坐标：从 X 走向 Y 与 Z/);
   assert.match(manifestoZhHtml, /Self-Improvement Agentic AI System/);
   assert.match(manifestoZhHtml, /<time dateTime="2026-04-25">2026 年 4 月 25 日<\/time>/);
