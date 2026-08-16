@@ -82,7 +82,7 @@ export const industrialRevolutionArticleZh: ArticleTranslation = {
             "Z — Zero",
             "趋近零人工执行",
             "Agents by Agents",
-            "Human beyond the Execution Loop",
+            "Human beyond the Loop",
             "Agent 如何自我改进，并验证更新是否安全有效",
           ],
         ],

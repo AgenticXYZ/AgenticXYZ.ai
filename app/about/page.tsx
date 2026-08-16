@@ -119,7 +119,7 @@ export default function AboutPage() {
             <span>Z</span>
             <div>
               <h3>Zero</h3>
-              <p>Agents by Agents · Human beyond the Execution Loop.</p>
+              <p>Agents by Agents · Human beyond the Loop.</p>
             </div>
           </article>
         </section>

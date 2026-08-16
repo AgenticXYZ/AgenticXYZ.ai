@@ -86,7 +86,7 @@ export const industrialRevolutionArticle: Article = {
             "Z — Zero",
             "Toward zero human execution",
             "Agents by Agents",
-            "Human beyond the Execution Loop",
+            "Human beyond the Loop",
             "How agents improve agents and verify that each update is safe and effective",
           ],
         ],

@@ -51,7 +51,7 @@ const xyzFramework = [
     operator: "^",
     meaning: "Towards self-improvement agentic AI",
     relationship: "Agents by Agents",
-    stage: "Human beyond the Execution Loop",
+    stage: "Human beyond the Loop",
     question:
       "How agents improve agents and verify that each update is safe and effective.",
   },
@@ -214,7 +214,7 @@ export default function Home() {
               Z explores evidence-carrying, gated, and reversible
               self-improvement—not unconstrained self-modification.
             </p>
-            <p className="loop-role">Human <strong>beyond</strong> the Execution Loop</p>
+            <p className="loop-role">Human <strong>beyond</strong> the Loop</p>
             <div className="leverage-line">
               <span>Compounding leverage</span><strong>100–1000×</strong>
             </div>

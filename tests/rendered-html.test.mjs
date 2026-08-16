@@ -50,7 +50,8 @@ test("renders the AgenticXYZ home page", async () => {
   assert.doesNotMatch(html, /Memory \/ RAG \/ Ledger/);
   assert.match(html, /Human <strong>in<\/strong> the Loop/);
   assert.match(html, /Human <strong>on<\/strong> the Loop/);
-  assert.match(html, /Human <strong>beyond<\/strong> the Execution Loop/);
+  assert.match(html, /Human <strong>beyond<\/strong> the Loop/);
+  assert.doesNotMatch(html, /Human beyond the Execution Loop|Human <strong>beyond<\/strong> the Execution Loop/);
   assert.match(html, /Latest from AgenticXYZ/);
   assert.match(html, />About <span>↗<\/span><\/a>/);
   assert.match(html, /<a href="\/">Main<\/a>/);
@@ -119,7 +120,8 @@ test("renders Writing, both new essays, Moments, and About Me", async () => {
   assert.match(manifestoHtml, /Agents with People/);
   assert.match(manifestoHtml, /Human on the Loop/);
   assert.doesNotMatch(manifestoHtml, /Agents in Every Loop/);
-  assert.match(manifestoHtml, /Human beyond the Execution Loop/);
+  assert.match(manifestoHtml, /Human beyond the Loop/);
+  assert.doesNotMatch(manifestoHtml, /Human beyond the Execution Loop/);
   assert.match(manifestoHtml, /Agentic AI enables controllable intelligence to help people/);
   assert.match(manifestoHtml, /Working on self-improvement agentic AI system/);
   assert.match(manifestoHtml, /<time dateTime="2026-04-25">April 25, 2026<\/time>/);
@@ -148,6 +150,8 @@ test("renders Writing, both new essays, Moments, and About Me", async () => {
   assert.match(manifestoZhHtml, /Agents with People/);
   assert.match(manifestoZhHtml, /Human on the Loop/);
   assert.doesNotMatch(manifestoZhHtml, /Agents in Every Loop/);
+  assert.match(manifestoZhHtml, /Human beyond the Loop/);
+  assert.doesNotMatch(manifestoZhHtml, /Human beyond the Execution Loop/);
   assert.match(manifestoZhHtml, /研究坐标：从 X 走向 Y 与 Z/);
   assert.match(manifestoZhHtml, /Self-Improvement Agentic AI System/);
   assert.match(manifestoZhHtml, /<time dateTime="2026-04-25">2026 年 4 月 25 日<\/time>/);
@@ -269,7 +273,8 @@ test("renders Writing, both new essays, Moments, and About Me", async () => {
   assert.match(aboutHtml, /WeChat Official Account \(Chinese only\):/);
   assert.match(aboutHtml, /自主新生宇宙智能AgenticXYZ/);
   assert.match(aboutHtml, /ID: AgenticXYZAI/);
-  assert.match(aboutHtml, /Agents by Agents · Human beyond the Execution Loop/);
+  assert.match(aboutHtml, /Agents by Agents · Human beyond the Loop/);
+  assert.doesNotMatch(aboutHtml, /Human beyond the Execution Loop/);
 
   assert.doesNotMatch(momentsHtml, /[\u3400-\u9fff]/);
   assert.doesNotMatch(
