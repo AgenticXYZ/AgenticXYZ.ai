@@ -290,6 +290,9 @@ test("renders Writing, both new essays, Moments, and About Me", async () => {
 test("uses one article typeface and two reading sizes", async () => {
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
 
+  assert.match(css, /\.framework-table-head,[\s\S]*?grid-template-columns: minmax\(190px, 1\.05fr\)/);
+  assert.match(css, /\.framework-row > \.framework-axis \{[\s\S]*?padding-inline: 18px;/);
+  assert.match(css, /\.framework-axis small \{[\s\S]*?white-space: nowrap;/);
   assert.match(css, /--article-font: Georgia, "Songti SC", "STSong", serif/);
   assert.match(css, /--article-body-size:/);
   assert.match(css, /--article-title-size:/);

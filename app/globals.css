@@ -1588,7 +1588,7 @@ a {
 .framework-table-head,
 .framework-row {
   display: grid;
-  grid-template-columns: minmax(155px, 0.8fr) minmax(170px, 1fr) minmax(170px, 1fr) minmax(190px, 1.1fr) minmax(270px, 1.65fr);
+  grid-template-columns: minmax(190px, 1.05fr) minmax(160px, 0.95fr) minmax(160px, 0.95fr) minmax(175px, 1.05fr) minmax(250px, 1.55fr);
 }
 
 .framework-table-head {
@@ -1605,6 +1605,11 @@ a {
 .framework-row > div {
   padding: 22px 22px;
   border-right: 1px solid var(--line);
+}
+
+.framework-table-head span:first-child,
+.framework-row > .framework-axis {
+  padding-inline: 18px;
 }
 
 .framework-table-head span {
@@ -1631,8 +1636,8 @@ a {
 
 .framework-axis {
   display: grid;
-  grid-template-columns: 42px 1fr;
-  gap: 14px;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 16px;
   align-items: center;
 }
 
@@ -1662,6 +1667,10 @@ a {
   font-weight: 650;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+.framework-axis small {
+  white-space: nowrap;
 }
 
 .framework-cell > small {
