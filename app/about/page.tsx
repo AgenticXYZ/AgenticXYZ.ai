@@ -49,7 +49,7 @@ export default function AboutPage() {
                 version-controlled in Git, with{" "}
                 <a
                   className="about-contact-link"
-                  href="https://github.com/zhangshea/AgenticXYZ.ai"
+                  href="https://github.com/AgenticXYZ/AgenticXYZ.ai"
                   target="_blank"
                   rel="noreferrer"
                 >

@@ -44,5 +44,5 @@ Cloudflare credentials are supplied by the local or CI environment and are never
 
 - Website: [agenticxyz.ai](https://agenticxyz.ai)
 - X: [@xinyusheazhang](https://x.com/xinyusheazhang)
-- Prototype 1: [zhangshea/AgenticXYZ-Prototype-1](https://github.com/zhangshea/AgenticXYZ-Prototype-1)
+- Prototype 1: [AgenticXYZ/AgenticXYZ-Prototype-1](https://github.com/AgenticXYZ/AgenticXYZ-Prototype-1)
 - KPR paper: [arXiv:2606.26721](https://arxiv.org/abs/2606.26721)

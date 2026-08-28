@@ -76,8 +76,8 @@ export const prototypeKnowledgeArticleZh: ArticleTranslation = {
         "长期目标很大：Agent 进入各种软件环境，收集分散知识，在正确范围内提供知识，并帮助人与其他 Agent 复用它。第一步则有意保持狭窄：先建立一条可信路径，让一次真实经验变成一份受到治理、可以复用的项目知识。如果我们连这条小循环中的意图、来源、隐私、证据和权力边界都保留不好，更大的数字知识中心只会放大噪声与错误；如果这一步能够成立，同一种结构才有机会逐渐扩展到应用、团队和组织。AgenticXYZ Prototype 1 会以开源软件的形式发布，下面就是它的公开仓库地址。",
       ],
       link: {
-        href: "https://github.com/zhangshea/AgenticXYZ-Prototype-1",
-        label: "github.com/zhangshea/AgenticXYZ-Prototype-1",
+        href: "https://github.com/AgenticXYZ/AgenticXYZ-Prototype-1",
+        label: "github.com/AgenticXYZ/AgenticXYZ-Prototype-1",
       },
     },
   ],

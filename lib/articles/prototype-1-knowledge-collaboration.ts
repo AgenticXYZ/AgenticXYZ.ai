@@ -79,8 +79,8 @@ export const prototypeKnowledgeArticle: Article = {
         "The long-term ambition is broad: agents participate across software environments, collect dispersed knowledge, make it available at the right scope, and help people and other agents reuse it. The first step is intentionally narrow: establish a trustworthy path through which one real experience can become one governed piece of reusable project knowledge. If we cannot preserve intent, provenance, privacy, evidence, and authority in this small loop, a larger digital knowledge center will only amplify noise and error. If this step holds, the same structure may gradually expand across applications, teams, and organizations. AgenticXYZ Prototype 1 will be released as open-source software at the public repository below.",
       ],
       link: {
-        href: "https://github.com/zhangshea/AgenticXYZ-Prototype-1",
-        label: "github.com/zhangshea/AgenticXYZ-Prototype-1",
+        href: "https://github.com/AgenticXYZ/AgenticXYZ-Prototype-1",
+        label: "github.com/AgenticXYZ/AgenticXYZ-Prototype-1",
       },
     },
   ],

@@ -174,7 +174,7 @@ test("renders Writing, both new essays, Moments, and About Me", async () => {
   assert.doesNotMatch(prototypeHtml, /href="#section-6"/);
   assert.match(
     prototypeHtml,
-    /href="https:\/\/github\.com\/zhangshea\/AgenticXYZ-Prototype-1" target="_blank" rel="noreferrer"/,
+    /href="https:\/\/github\.com\/AgenticXYZ\/AgenticXYZ-Prototype-1" target="_blank" rel="noreferrer"/,
   );
   assert.match(
     prototypeHtml,
@@ -197,7 +197,7 @@ test("renders Writing, both new essays, Moments, and About Me", async () => {
   assert.doesNotMatch(prototypeZhHtml, /href="#section-6"/);
   assert.match(
     prototypeZhHtml,
-    /href="https:\/\/github\.com\/zhangshea\/AgenticXYZ-Prototype-1" target="_blank" rel="noreferrer"/,
+    /href="https:\/\/github\.com\/AgenticXYZ\/AgenticXYZ-Prototype-1" target="_blank" rel="noreferrer"/,
   );
   assert.match(
     prototypeZhHtml,
@@ -263,7 +263,7 @@ test("renders Writing, both new essays, Moments, and About Me", async () => {
   assert.match(aboutHtml, /maintained with OpenAI ChatGPT/);
   assert.match(aboutHtml, /hosted on Cloudflare/);
   assert.match(aboutHtml, /version-controlled in Git/);
-  assert.match(aboutHtml, /href="https:\/\/github\.com\/zhangshea\/AgenticXYZ\.ai" target="_blank" rel="noreferrer"/);
+  assert.match(aboutHtml, /href="https:\/\/github\.com\/AgenticXYZ\/AgenticXYZ\.ai" target="_blank" rel="noreferrer"/);
   assert.match(aboutHtml, /GitHub[\s\S]*?as the public source home/);
   assert.match(aboutHtml, /I am Xinyu Zhang—a researcher and engineer/);
   assert.match(aboutHtml, /agent-centered knowledge collaboration/);
