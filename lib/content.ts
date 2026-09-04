@@ -33,6 +33,26 @@ export type Moment = {
 
 export const moments: Moment[] = [
   {
+    id: "gpt-6-astra",
+    date: "2026-09-03",
+    day: 3,
+    displayDate: "September 3",
+    label: "Model release",
+    title: "GPT-6 Astra Released",
+    description:
+      "OpenAI released GPT-6 Astra, its most capable model for end-to-end work across computer use, coding, research, and professional workflows, beginning with a limited trusted-access rollout.",
+  },
+  {
+    id: "claude-fable-5-1",
+    date: "2026-09-01",
+    day: 1,
+    displayDate: "September 1",
+    label: "Model release",
+    title: "Claude Fable 5.1 Released",
+    description:
+      "Anthropic released Claude Fable 5.1 for demanding reasoning and long-horizon agentic work, strengthening coding, multistep research, and document-heavy workflows.",
+  },
+  {
     id: "glm-5-3",
     date: "2026-08-14",
     day: 14,

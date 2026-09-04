@@ -217,6 +217,8 @@ test("renders Writing, both new essays, Moments, and About Me", async () => {
     assert.doesNotMatch(html, /Switch article language/);
   }
   assert.equal(momentsResponse.status, 200);
+  assert.match(momentsHtml, /GPT-6 Astra Released/);
+  assert.match(momentsHtml, /Claude Fable 5\.1 Released/);
   assert.match(momentsHtml, /Opus 5/);
   assert.match(momentsHtml, /GLM-5\.3 Released/);
   assert.match(momentsHtml, /Kimi K3 Released/);
@@ -235,6 +237,14 @@ test("renders Writing, both new essays, Moments, and About Me", async () => {
     /id="writing-agentic-ai-industrial-revolution"[\s\S]*?April 25[\s\S]*?Writing · Manifesto 01[\s\S]*?href="\/writing\/agentic-ai-industrial-revolution"[\s\S]*?AgenticXYZ: Controlled Intelligence, Superintelligent Organizations, and the Fourth Industrial Revolution/,
   );
   assert.ok(
+    momentsHtml.indexOf('id="gpt-6-astra"') <
+      momentsHtml.indexOf('id="claude-fable-5-1"'),
+  );
+  assert.ok(
+    momentsHtml.indexOf('id="claude-fable-5-1"') <
+      momentsHtml.indexOf('id="glm-5-3"'),
+  );
+  assert.ok(
     momentsHtml.indexOf('id="glm-5-3"') <
       momentsHtml.indexOf('id="opus-5"'),
   );
@@ -250,6 +260,8 @@ test("renders Writing, both new essays, Moments, and About Me", async () => {
     momentsHtml.indexOf('id="glm-5-2"') <
       momentsHtml.indexOf('id="writing-agentic-ai-industrial-revolution"'),
   );
+  assert.match(momentsHtml, /id="gpt-6-astra"[\s\S]*?<time dateTime="2026-09-03">September 3<\/time>/);
+  assert.match(momentsHtml, /id="claude-fable-5-1"[\s\S]*?<time dateTime="2026-09-01">September 1<\/time>/);
   assert.match(momentsHtml, /id="glm-5-3"[\s\S]*?<time dateTime="2026-08-14">August 14<\/time>/);
   assert.match(momentsHtml, /id="kimi-k3"[\s\S]*?<time dateTime="2026-07-16">July 16<\/time>/);
   assert.match(momentsHtml, /id="glm-5-2"[\s\S]*?<time dateTime="2026-06-16">June 16<\/time>/);
