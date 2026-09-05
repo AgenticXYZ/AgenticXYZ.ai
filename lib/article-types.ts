@@ -30,6 +30,7 @@ export type ArticleText = {
   dek: string;
   readTime: string;
   lead: string;
+  intro?: string[];
   sections: ArticleSection[];
   endNote: string;
   asideLabel?: string;

@@ -2,6 +2,28 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
+test("publishes the bilingual substrate essay with sources and archive integration", async () => {
+  const slug = "agent-applications-next-substrate";
+  for (const prefix of ["/writing/", "/zh/writing/"]) {
+    const response = await render(prefix + slug);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    assert.equal((html.match(/<section id="section-\d+" data-article-section/g) || []).length, 5);
+    assert.match(html, /href="https:\/\/agenticxyz.ai\/writing\/prototype-1-knowledge-collaboration"/);
+    assert.match(html, /Trusted Knowledge Aggregation/);
+    assert.match(html, /<h3>/);
+    assert.match(html, /<blockquote>/);
+    assert.match(html, /href="https:\/\/arxiv.org\/abs\/2606.26721"/);
+    assert.doesNotMatch(html, /本文也同时发布|发布后补充地址/);
+    assert.match(html, new RegExp('href="/zh/writing/' + slug + '"'));
+    assert.match(html, new RegExp('href="/writing/' + slug + '"'));
+  }
+  const archive = await (await render("/moments")).text();
+  assert.match(archive, /id="writing-agent-applications-next-substrate"/);
+  const writing = await (await render("/writing")).text();
+  assert.match(writing, /Agent Applications as the Next Application Substrate/);
+});
+
 async function render(pathname) {
   const relativePath = pathname === "/" ? "index.html" : `${pathname.slice(1)}.html`;
   let status = 200;
@@ -34,8 +56,8 @@ test("renders the AgenticXYZ home page", async () => {
   assert.match(html, /PERSONAL RESEARCH NOTES/);
   assert.match(html, /Building agent-based knowledge collaboration and self-improving[\s\S]*?agent systems/);
   assert.doesNotMatch(html, /Hi, I am Xinyu Zhang/);
-  assert.match(html, /href="\/writing\/prototype-1-knowledge-collaboration" class="hero-update"/);
-  assert.match(html, /Latest update[\s\S]*?AgenticXYZ Prototype 1:[\s\S]*?August 14, 2026/);
+  assert.match(html, /href="\/writing\/agent-applications-next-substrate" class="hero-update"/);
+  assert.match(html, /Latest update[\s\S]*?Agent Applications as the Next Application Substrate[\s\S]*?September 5, 2026/);
   assert.match(html, /role="table" aria-label="The AgenticXYZ coordinate system"/);
   assert.match(html, /Agents with People/);
   assert.match(html, /Agents for People/);

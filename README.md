@@ -2,7 +2,7 @@
 
 [AgenticXYZ.ai](https://agenticxyz.ai) is Xinyu Zhang's personal research-notes website about Agentic AI: controlled intelligence, agent-centered knowledge collaboration, and self-improving agent systems.
 
-The site contains two long-form essays, a dated Moments archive, and the X / Y / Z research coordinate system:
+The site contains three bilingual long-form essays, a dated Moments archive, and the X / Y / Z research coordinate system:
 
 - **X — Crossing:** Agents with People
 - **Y — Yours:** Agents for People

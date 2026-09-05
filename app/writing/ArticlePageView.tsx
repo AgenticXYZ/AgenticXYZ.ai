@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Markdown from "react-markdown";
 import type { LocalizedArticle } from "../../lib/content";
 import { SiteFooter, SiteHeader } from "../components/SiteChrome";
 import { ArticleNavigator } from "./ArticleNavigator";
@@ -64,6 +65,9 @@ export function ArticlePageView({
             <ArticleNavigator language={article.language} sections={article.sections} />
             <div className="essay-body">
               <p className="essay-lead">{article.lead}</p>
+              {article.intro?.map((paragraph) => (
+                <Markdown key={paragraph}>{paragraph}</Markdown>
+              ))}
               {article.sections.map((section, index) => (
                 <section
                   id={`section-${index + 1}`}
@@ -72,7 +76,7 @@ export function ArticlePageView({
                 >
                   <h2>{section.heading}</h2>
                   {section.paragraphs.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
+                    <Markdown key={paragraph} components={{ h2: ({ children }) => <h3>{children}</h3> }}>{paragraph}</Markdown>
                   ))}
                   {section.link && (
                     <p className="article-project-link">

@@ -3522,6 +3522,46 @@ body {
 .essay-body {
   width: 100%;
   max-width: 820px;
+  min-width: 0;
+}
+
+.essay-body h3 {
+  margin: 44px 0 24px;
+  font-size: var(--article-body-size);
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.essay-body ul,
+.essay-body ol {
+  padding-left: 1.5em;
+  margin: 0 0 28px;
+  color: #3f3d39;
+  font-size: var(--article-body-size);
+  line-height: 1.9;
+}
+
+.essay-body li { margin-bottom: 8px; }
+.essay-body blockquote {
+  margin: 28px 0;
+  padding-left: 24px;
+  border-left: 2px solid var(--blue);
+}
+.essay-body pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 24px;
+  margin: 28px 0;
+  background: var(--paper, #f7f5ef);
+  border: 1px solid var(--line);
+  line-height: 1.8;
+  font-size: 14px;
+}
+.essay-body p a,
+.essay-body li a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
 }
 
 .essay-body p,
