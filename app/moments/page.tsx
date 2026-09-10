@@ -49,7 +49,12 @@ export default function MomentsPage() {
                   <span className="timeline-label">{moment.label}</span>
                   <h3>
                     {moment.href ? (
-                      <Link href={moment.href}>
+                      <Link
+                        href={moment.href}
+                        {...(moment.href.startsWith("http")
+                          ? { target: "_blank", rel: "noreferrer" }
+                          : {})}
+                      >
                         {moment.title}
                         <span className="timeline-link-arrow" aria-hidden="true">↗</span>
                       </Link>

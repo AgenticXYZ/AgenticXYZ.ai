@@ -239,6 +239,7 @@ test("renders Writing, both new essays, Moments, and About Me", async () => {
     assert.doesNotMatch(html, /Switch article language/);
   }
   assert.equal(momentsResponse.status, 200);
+  assert.match(momentsHtml, /DeepSeek-V4\.1-Flash Released/);
   assert.match(momentsHtml, /GPT-6 Astra Released/);
   assert.match(momentsHtml, /Claude Fable 5\.1 Released/);
   assert.match(momentsHtml, /Opus 5/);
@@ -252,11 +253,23 @@ test("renders Writing, both new essays, Moments, and About Me", async () => {
   assert.match(momentsHtml, /What happened/);
   assert.match(
     momentsHtml,
+    /id="deepseek-v4-1-flash"[\s\S]*?<time dateTime="2026-09-10">September 10<\/time>[\s\S]*?href="https:\/\/huggingface\.co\/deepseek-ai\/DeepSeek-V4\.1-Flash\/blob\/main\/DeepSeek_V41_Tech_Report\.pdf" target="_blank" rel="noreferrer"[\s\S]*?DeepSeek-V4\.1-Flash Released/,
+  );
+  assert.match(
+    momentsHtml,
     /id="writing-prototype-1-knowledge-collaboration"[\s\S]*?August 14[\s\S]*?Writing · Design Note 02[\s\S]*?href="\/writing\/prototype-1-knowledge-collaboration"[\s\S]*?AgenticXYZ Prototype 1: A Knowledge Collaboration Layer for People and Agents/,
   );
   assert.match(
     momentsHtml,
     /id="writing-agentic-ai-industrial-revolution"[\s\S]*?April 25[\s\S]*?Writing · Manifesto 01[\s\S]*?href="\/writing\/agentic-ai-industrial-revolution"[\s\S]*?AgenticXYZ: Controlled Intelligence, Superintelligent Organizations, and the Fourth Industrial Revolution/,
+  );
+  assert.ok(
+    momentsHtml.indexOf('id="deepseek-v4-1-flash"') <
+      momentsHtml.indexOf('id="writing-agent-applications-next-substrate"'),
+  );
+  assert.ok(
+    momentsHtml.indexOf('id="writing-agent-applications-next-substrate"') <
+      momentsHtml.indexOf('id="gpt-6-astra"'),
   );
   assert.ok(
     momentsHtml.indexOf('id="gpt-6-astra"') <

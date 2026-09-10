@@ -35,6 +35,18 @@ export type Moment = {
 
 export const moments: Moment[] = [
   {
+    id: "deepseek-v4-1-flash",
+    date: "2026-09-10",
+    day: 10,
+    displayDate: "September 10",
+    label: "Model release",
+    title: "DeepSeek-V4.1-Flash Released",
+    description:
+      "DeepSeek released DeepSeek-V4.1-Flash, a native multimodal Mixture-of-Experts model that pairs a causal encoder-decoder architecture with a one-million-token context window and a substantially smaller KV cache.",
+    href:
+      "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/main/DeepSeek_V41_Tech_Report.pdf",
+  },
+  {
     id: "gpt-6-astra",
     date: "2026-09-03",
     day: 3,
