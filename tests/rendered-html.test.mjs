@@ -239,6 +239,20 @@ test("renders Writing, both new essays, Moments, and About Me", async () => {
     assert.doesNotMatch(html, /Switch article language/);
   }
   assert.equal(momentsResponse.status, 200);
+  for (const [id, title, href] of [
+    ["mimo-v2-6", "MiMo-V2.6 Released", "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL/blob/main/MiMo_V2_6_technical_report.pdf"],
+    ["gpt-6-sol", "GPT-6 Sol Released", "https://developers.openai.com/api/docs/changelog"],
+    ["claude-opus-5-5", "Claude Opus 5.5 Released", "https://www.anthropic.com/claude-opus-5-5-system-card"],
+  ]) {
+    const entry = momentsHtml.match(new RegExp(`<article[^>]*id="${id}"[\\s\\S]*?<\\/article>`))?.[0];
+    assert.ok(entry, `${title} appears in Moments`);
+    assert.match(entry, /<time dateTime="2026-09-22">September 22<\/time>/);
+    assert.ok(entry.includes(`href="${href}" target="_blank" rel="noreferrer"`));
+    assert.ok(entry.includes(title));
+  }
+  assert.ok(momentsHtml.indexOf('id="mimo-v2-6"') < momentsHtml.indexOf('id="gpt-6-sol"'));
+  assert.ok(momentsHtml.indexOf('id="gpt-6-sol"') < momentsHtml.indexOf('id="claude-opus-5-5"'));
+  assert.ok(momentsHtml.indexOf('id="claude-opus-5-5"') < momentsHtml.indexOf('id="deepseek-v4-1-flash"'));
   assert.match(momentsHtml, /DeepSeek-V4\.1-Flash Released/);
   assert.match(momentsHtml, /GPT-6 Astra Released/);
   assert.match(momentsHtml, /Claude Fable 5\.1 Released/);

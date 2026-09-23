@@ -35,6 +35,40 @@ export type Moment = {
 
 export const moments: Moment[] = [
   {
+    id: "mimo-v2-6",
+    date: "2026-09-22",
+    day: 22,
+    displayDate: "September 22",
+    label: "Model release",
+    title: "MiMo-V2.6 Released",
+    description:
+      "Xiaomi released and open-sourced the MiMo-V2.6 Pro and Flash multimodal models, alongside their technical report and resources for reinforcement-learning research.",
+    href:
+      "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL/blob/main/MiMo_V2_6_technical_report.pdf",
+  },
+  {
+    id: "gpt-6-sol",
+    date: "2026-09-22",
+    day: 22,
+    displayDate: "September 22",
+    label: "Model release",
+    title: "GPT-6 Sol Released",
+    description:
+      "OpenAI released GPT-6 Sol for complex coding and agentic workflows, with text and image input through the Responses and Chat Completions APIs.",
+    href: "https://developers.openai.com/api/docs/changelog",
+  },
+  {
+    id: "claude-opus-5-5",
+    date: "2026-09-22",
+    day: 22,
+    displayDate: "September 22",
+    label: "Model release",
+    title: "Claude Opus 5.5 Released",
+    description:
+      "Anthropic released Claude Opus 5.5 for agentic coding and knowledge work, with stronger performance and lower typical running costs than Opus 5.",
+    href: "https://www.anthropic.com/claude-opus-5-5-system-card",
+  },
+  {
     id: "deepseek-v4-1-flash",
     date: "2026-09-10",
     day: 10,
