@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Markdown from "react-markdown";
@@ -128,7 +129,7 @@ export function ArticlePageView({
                                   data-label={section.table?.headers[cellIndex]}
                                   key={`${row[0]}-${cellIndex}`}
                                 >
-                                  {cell}
+                                  {withSlashBreaks(cell)}
                                 </td>
                               ))}
                             </tr>
@@ -165,4 +166,21 @@ export function ArticlePageView({
       </div>
     </main>
   );
+}
+
+// Long slash-joined values (tool lists, paths) may wrap after each "/" instead
+// of widening a column or breaking inside a word.
+function withSlashBreaks(text: string) {
+  if (!text.includes("/")) return text;
+  const parts = text.split("/");
+  return parts.map((part, index) => (
+    <Fragment key={index}>
+      {part}
+      {index < parts.length - 1 && (
+        <>
+          /<wbr />
+        </>
+      )}
+    </Fragment>
+  ));
 }

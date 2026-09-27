@@ -3541,7 +3541,25 @@ body {
   line-height: 1.9;
 }
 
-.essay-body li { margin-bottom: 8px; }
+/* Tailwind's preflight removes list markers; restore them for article prose. */
+.essay-body ul {
+  list-style: disc outside;
+}
+
+.essay-body ol {
+  list-style: decimal outside;
+}
+
+.essay-body li { margin-bottom: 8px; padding-left: 0.2em; }
+
+.essay-body li::marker {
+  color: var(--muted);
+}
+
+.essay-body li > ul,
+.essay-body li > ol {
+  margin: 8px 0 0;
+}
 .essay-body blockquote {
   margin: 28px 0;
   padding-left: 24px;
@@ -3676,11 +3694,14 @@ body {
   scrollbar-width: thin;
 }
 
+/* Columns size to their content. A table whose content cannot fit grows
+   wider than the column and scrolls inside .article-table-wrap; cells never
+   overlap because unbreakable strings widen their column instead. */
 .article-table {
   width: 100%;
   min-width: 780px;
   border-collapse: collapse;
-  table-layout: fixed;
+  table-layout: auto;
   color: #3f3d39;
   font-size: var(--article-body-size);
   font-weight: 400;
@@ -3696,13 +3717,20 @@ body {
 
 .article-table th,
 .article-table td {
-  padding: 16px 16px 17px 0;
+  padding: 16px 20px 17px 0;
   border-bottom: 1px solid var(--line);
   font-size: var(--article-body-size);
   font-weight: 400;
   line-height: 1.5;
   text-align: left;
   vertical-align: top;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.article-table th:last-child,
+.article-table td:last-child {
+  padding-right: 0;
 }
 
 .article-table th {
@@ -3711,30 +3739,25 @@ body {
 
 .article-table th:nth-child(1),
 .article-table td:nth-child(1) {
-  width: 15%;
   color: var(--blue);
 }
 
 .article-table th:nth-child(2),
 .article-table td:nth-child(2) {
-  width: 17%;
 }
 
 .article-table th:nth-child(3),
 .article-table td:nth-child(3) {
-  width: 18%;
   color: var(--ink);
 }
 
 .article-table th:nth-child(4),
 .article-table td:nth-child(4) {
-  width: 22%;
   color: var(--ink);
 }
 
 .article-table th:nth-child(5),
 .article-table td:nth-child(5) {
-  width: 28%;
   padding-right: 0;
 }
 
@@ -3904,6 +3927,7 @@ body {
     gap: 14px;
     padding: 8px 0;
     border-bottom: 0;
+    overflow-wrap: anywhere;
   }
 
   .article-table td::before {

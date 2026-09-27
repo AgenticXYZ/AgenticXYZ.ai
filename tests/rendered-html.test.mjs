@@ -399,3 +399,14 @@ test("uses one article typeface and two reading sizes", async () => {
   assert.match(css, /\.article-table th,[\s\S]*?font-size: var\(--article-body-size\);[\s\S]*?font-weight: 400;/);
   assert.match(css, /\.article-table td::before \{[\s\S]*?content: attr\(data-label\);/);
 });
+
+test("keeps article tables readable and list markers visible", async () => {
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+
+  assert.match(css, /\.article-table-wrap \{[\s\S]*?overflow-x: auto;/);
+  assert.match(css, /\.article-table \{[\s\S]*?table-layout: auto;/);
+  assert.doesNotMatch(css, /\.article-table \{[^}]*table-layout: fixed;/);
+  assert.doesNotMatch(css, /\.article-table td:nth-child\(\d\) \{[^}]*width:/);
+  assert.match(css, /\.essay-body ul \{[\s\S]*?list-style: disc outside;/);
+  assert.match(css, /\.essay-body ol \{[\s\S]*?list-style: decimal outside;/);
+});
