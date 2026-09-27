@@ -2,6 +2,7 @@ import type { Article, ArticleLanguage, LocalizedArticle } from "./article-types
 import { industrialRevolutionArticle } from "./articles/agentic-ai-industrial-revolution";
 import { prototypeKnowledgeArticle } from "./articles/prototype-1-knowledge-collaboration";
 import { agentApplicationsArticle } from "./articles/agent-applications-next-substrate";
+import { fallingCostOfIntelligenceArticle } from "./articles/falling-cost-of-intelligence";
 
 export type {
   Article,
@@ -12,6 +13,7 @@ export type {
 } from "./article-types";
 
 const articleCatalog: Article[] = [
+  fallingCostOfIntelligenceArticle,
   agentApplicationsArticle,
   industrialRevolutionArticle,
   prototypeKnowledgeArticle,

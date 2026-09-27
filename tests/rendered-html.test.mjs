@@ -24,6 +24,36 @@ test("publishes the bilingual substrate essay with sources and archive integrati
   assert.match(writing, /Agent Applications as the Next Application Substrate/);
 });
 
+test("publishes the bilingual falling-cost-of-intelligence essay with figures, tables, and archive integration", async () => {
+  const slug = "falling-cost-of-intelligence";
+  for (const [prefix, lang] of [["/writing/", "en"], ["/zh/writing/", "zh"]]) {
+    const response = await render(prefix + slug);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    assert.equal((html.match(/<section id="section-\d+" data-article-section/g) || []).length, 11);
+    assert.match(html, /src="\/images\/falling-cost-of-intelligence\/epoch-ai-price-decline\.png"/);
+    assert.match(html, new RegExp('src="/images/falling-cost-of-intelligence/mimo-rl-pipeline-' + lang + '\\.png"'));
+    assert.match(html, new RegExp('src="/images/falling-cost-of-intelligence/knowledge-loop-' + lang + '\\.png"'));
+    assert.match(html, /href="https:\/\/github\.com\/XiaomiMiMo\/verl"/);
+    assert.match(html, /href="https:\/\/epoch\.ai"/);
+    assert.match(html, /<h3>/);
+    assert.match(html, /\/advisor fable/);
+    assert.match(html, new RegExp('href="/zh/writing/' + slug + '"'));
+    assert.match(html, new RegExp('href="/writing/' + slug + '"'));
+  }
+  const en = await (await render("/writing/" + slug)).text();
+  assert.match(en, /The Falling Cost of Intelligence and a New System for Knowledge Collaboration/);
+  const zh = await (await render("/zh/writing/" + slug)).text();
+  assert.match(zh, /智能的成本下降与全新的知识协作系统/);
+  const archive = await (await render("/moments")).text();
+  assert.equal((archive.match(/id="writing-falling-cost-of-intelligence"/g) || []).length, 1);
+  assert.ok(archive.indexOf('id="writing-falling-cost-of-intelligence"') < archive.indexOf('id="mimo-v2-6"'));
+  const writing = await (await render("/writing")).text();
+  assert.match(writing, /The Falling Cost of Intelligence and a New System for Knowledge Collaboration/);
+  const oldEssay = await render("/writing/agent-applications-next-substrate");
+  assert.equal(oldEssay.status, 200);
+});
+
 async function render(pathname) {
   const relativePath = pathname === "/" ? "index.html" : `${pathname.slice(1)}.html`;
   let status = 200;
@@ -56,8 +86,8 @@ test("renders the AgenticXYZ home page", async () => {
   assert.match(html, /PERSONAL RESEARCH NOTES/);
   assert.match(html, /Building agent-based knowledge collaboration and self-improving[\s\S]*?agent systems/);
   assert.doesNotMatch(html, /Hi, I am Xinyu Zhang/);
-  assert.match(html, /href="\/writing\/agent-applications-next-substrate" class="hero-update"/);
-  assert.match(html, /Latest update[\s\S]*?Agent Applications as the Next Application Substrate[\s\S]*?September 5, 2026/);
+  assert.match(html, /href="\/writing\/falling-cost-of-intelligence" class="hero-update"/);
+  assert.match(html, /Latest update[\s\S]*?The Falling Cost of Intelligence and a New System for Knowledge Collaboration[\s\S]*?September 27, 2026/);
   assert.match(html, /role="table" aria-label="The AgenticXYZ coordinate system"/);
   assert.match(html, /Agents with People/);
   assert.match(html, /Agents for People/);
