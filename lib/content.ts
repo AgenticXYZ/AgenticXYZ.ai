@@ -3,6 +3,7 @@ import { industrialRevolutionArticle } from "./articles/agentic-ai-industrial-re
 import { prototypeKnowledgeArticle } from "./articles/prototype-1-knowledge-collaboration";
 import { agentApplicationsArticle } from "./articles/agent-applications-next-substrate";
 import { fallingCostOfIntelligenceArticle } from "./articles/falling-cost-of-intelligence";
+import { personalAgentsAgenticSoftwareArticle } from "./articles/personal-agents-agentic-software";
 
 export type {
   Article,
@@ -13,6 +14,7 @@ export type {
 } from "./article-types";
 
 const articleCatalog: Article[] = [
+  personalAgentsAgenticSoftwareArticle,
   fallingCostOfIntelligenceArticle,
   agentApplicationsArticle,
   industrialRevolutionArticle,

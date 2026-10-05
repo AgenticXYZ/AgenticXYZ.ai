@@ -54,6 +54,34 @@ test("publishes the bilingual falling-cost-of-intelligence essay with figures, t
   assert.equal(oldEssay.status, 200);
 });
 
+test("publishes the bilingual personal-agents essay with diagram, screenshot, table, and archive integration", async () => {
+  const slug = "personal-agents-agentic-software";
+  for (const [prefix, lang] of [["/writing/", "en"], ["/zh/writing/", "zh"]]) {
+    const response = await render(prefix + slug);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    assert.equal((html.match(/<section id="section-\d+" data-article-section/g) || []).length, 8);
+    assert.match(html, new RegExp('src="/images/personal-agents-agentic-software/agentic-stack-layers-' + lang + '\\.png"'));
+    assert.match(html, new RegExp('src="/images/personal-agents-agentic-software/agentic-runtime-demo-' + lang + '\\.png"'));
+    assert.match(html, /class="article-table/);
+    assert.match(html, /href="https:\/\/developers\.openai\.com\/siwc"/);
+    assert.match(html, /<h3>/);
+    assert.match(html, new RegExp('href="/zh/writing/' + slug + '"'));
+    assert.match(html, new RegExp('href="/writing/' + slug + '"'));
+  }
+  const en = await (await render("/writing/" + slug)).text();
+  assert.match(en, /Personal Agents Are the Future\. Agentic Software Is the Path\./);
+  const zh = await (await render("/zh/writing/" + slug)).text();
+  assert.match(zh, /个人智能体是未来，自主软件是路径/);
+  const archive = await (await render("/moments")).text();
+  assert.equal((archive.match(/id="writing-personal-agents-agentic-software"/g) || []).length, 1);
+  assert.ok(archive.indexOf('id="writing-personal-agents-agentic-software"') < archive.indexOf('id="writing-falling-cost-of-intelligence"'));
+  const writing = await (await render("/writing")).text();
+  assert.match(writing, /Personal Agents Are the Future\. Agentic Software Is the Path\./);
+  const previous = await render("/writing/falling-cost-of-intelligence");
+  assert.equal(previous.status, 200);
+});
+
 async function render(pathname) {
   const relativePath = pathname === "/" ? "index.html" : `${pathname.slice(1)}.html`;
   let status = 200;
@@ -86,8 +114,8 @@ test("renders the AgenticXYZ home page", async () => {
   assert.match(html, /PERSONAL RESEARCH NOTES/);
   assert.match(html, /Building agent-based knowledge collaboration and self-improving[\s\S]*?agent systems/);
   assert.doesNotMatch(html, /Hi, I am Xinyu Zhang/);
-  assert.match(html, /href="\/writing\/falling-cost-of-intelligence" class="hero-update"/);
-  assert.match(html, /Latest update[\s\S]*?The Falling Cost of Intelligence and a New System for Knowledge Collaboration[\s\S]*?September 27, 2026/);
+  assert.match(html, /href="\/writing\/personal-agents-agentic-software" class="hero-update"/);
+  assert.match(html, /Latest update[\s\S]*?Personal Agents Are the Future\. Agentic Software Is the Path\.[\s\S]*?October 4, 2026/);
   assert.match(html, /role="table" aria-label="The AgenticXYZ coordinate system"/);
   assert.match(html, /Agents with People/);
   assert.match(html, /Agents for People/);
