@@ -11,6 +11,8 @@ const requiredFiles = [
   "about.html",
   "moments.html",
   "writing.html",
+  "writing/falling-cost-of-intelligence.html",
+  "zh/writing/falling-cost-of-intelligence.html",
   "writing/agent-applications-next-substrate.html",
   "zh/writing/agent-applications-next-substrate.html",
   "writing/agentic-ai-industrial-revolution.html",

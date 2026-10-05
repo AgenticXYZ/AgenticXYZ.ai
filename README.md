@@ -29,6 +29,8 @@ The static website is written to `dist/client`.
 
 ## Publishing
 
+For the complete article-to-production workflow, see [成稿接入与上线操作手册](docs/article-publishing.zh-CN.md).
+
 The production website is hosted on Cloudflare Pages. Releases use a deliberate two-step process:
 
 1. review and publish the source in this repository;
